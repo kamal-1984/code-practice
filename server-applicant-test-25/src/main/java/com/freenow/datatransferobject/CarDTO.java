@@ -26,6 +26,9 @@ public class CarDTO {
 	    
 	    /** The manufacturer. */
     	private String manufacturer;
+    	
+    	 /** The is available. */
+ 	    private boolean isAvailable;
 
 		/**
 		 * Gets the license plate.
@@ -135,4 +138,22 @@ public class CarDTO {
 			this.manufacturer = manufacturer;
 		}
 
+		/**
+		 * Checks if is available.
+		 *
+		 * @return true, if is available
+		 */
+		public boolean isAvailable() {
+			return isAvailable;
+		}
+
+		/**
+		 * Sets the available.
+		 *
+		 * @param isAvailable the new available
+		 */
+		public void setAvailable(boolean isAvailable) {
+			this.isAvailable = isAvailable;
+		}
+		
 }

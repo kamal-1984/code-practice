@@ -34,7 +34,7 @@ public class JwtTokenUtil {
         claims.put("iss", "freenow");
         claims.put("username", userDetails.getUsername());
         return Jwts.builder().setClaims(claims).setIssuedAt(new Date(System.currentTimeMillis()))
-        		.setExpiration(new Date(System.currentTimeMillis() +1000 *60*60*1))
+        		.setExpiration(new Date(System.currentTimeMillis() +1000 * 60 * 60 * 1))
         		.signWith(SignatureAlgorithm.HS256, SECRET_KEY).compact();
 	}
 
@@ -70,7 +70,7 @@ public class JwtTokenUtil {
 	 */
 	public boolean validateToken(String token, UserDetails userDetails) {
 		final String username = this.extractUsername(token);
-		return ( username.equals(userDetails.getUsername()) && this.isTokenValid(token));
+		return (username.equals(userDetails.getUsername()) && this.isTokenValid(token));
 	}
 
 	/**

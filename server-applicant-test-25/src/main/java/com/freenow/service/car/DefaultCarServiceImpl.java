@@ -5,13 +5,10 @@ package com.freenow.service.car;
 
 import java.util.List;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
 import com.freenow.dataaccessobject.CarRepository;
 import com.freenow.domainobject.CarDO;
-import com.freenow.exception.ConstraintsViolationException;
 import com.freenow.exception.EntityNotFoundException;
 
 // TODO: Auto-generated Javadoc
@@ -21,9 +18,6 @@ import com.freenow.exception.EntityNotFoundException;
 @Service
 public class DefaultCarServiceImpl implements CarService {
 	
-    /** The Constant LOG. */
-    private static final Logger LOG = LoggerFactory.getLogger(DefaultCarServiceImpl.class);
-
     /** The car repository. */
     private final CarRepository carRepository;
 
@@ -46,8 +40,12 @@ public class DefaultCarServiceImpl implements CarService {
 	 * @throws EntityNotFoundException the entity not found exception
 	 */
 	@Override
-	public CarDO find(String licensePlate) throws EntityNotFoundException {
-		return this.carRepository.findByLicensePlate(licensePlate);
+	public CarDO find(String licensePlate) throws EntityNotFoundException{
+		CarDO carDO = this.carRepository.findByLicensePlate(licensePlate);
+		if(carDO==null) {
+			throw new EntityNotFoundException("Entity not found with license plate: "+licensePlate);
+		}
+		return carDO ;
 	}
 
 	/**
@@ -55,10 +53,9 @@ public class DefaultCarServiceImpl implements CarService {
 	 *
 	 * @param cardo the cardo
 	 * @return the car DO
-	 * @throws ConstraintsViolationException the constraints violation exception
 	 */
 	@Override
-	public CarDO create(CarDO cardo) throws ConstraintsViolationException {
+	public CarDO create(CarDO cardo){
 		return this.carRepository.save(cardo);
 	}
 

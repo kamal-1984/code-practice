@@ -1,0 +1,5 @@
+
+
+#ignore these from all Java projects (no need to include .gitignore for these exclusions separately)
+/**/target/*
+

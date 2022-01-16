@@ -15,22 +15,8 @@ import javax.persistence.UniqueConstraint;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
-// TODO: Auto-generated Javadoc
-/**
- * The Class CarDO.
- */
-// TODO: Auto-generated Javadoc
 
-/**
- * The Class CarDO.
- */
 // TODO: Auto-generated Javadoc
-
-/**
- * The Class CarDO.
- */
-// TODO: Auto-generated Javadoc
-
 /**
  * The Class CarDO.
  */
@@ -72,7 +58,11 @@ public class CarDO {
     /** The engine type. */
     @Column(nullable = false)
     private String manufacturer;
-
+    
+    /** The is available. */
+    @Column(nullable = false)
+    private boolean isAvailable;
+    
 	/**
 	 * Gets the id.
 	 *
@@ -197,6 +187,24 @@ public class CarDO {
 	 */
 	public void setManufacturer(String manufacturer) {
 		this.manufacturer = manufacturer;
+	}
+
+	/**
+	 * Checks if is available.
+	 *
+	 * @return true, if is available
+	 */
+	public boolean isAvailable() {
+		return isAvailable;
+	}
+
+	/**
+	 * Sets the available.
+	 *
+	 * @param isAvailable the new available
+	 */
+	public void setAvailable(boolean isAvailable) {
+		this.isAvailable = isAvailable;
 	}
     
 }

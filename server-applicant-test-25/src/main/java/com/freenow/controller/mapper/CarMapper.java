@@ -27,6 +27,7 @@ public class CarMapper {
 	public static CarDO makeCarDO(CarDTO carDTO) {
 		CarDO carDO = new CarDO();
 		BeanUtils.copyProperties(carDTO, carDO);
+		carDO.setAvailable(true);
 		return carDO;
 	}
 	

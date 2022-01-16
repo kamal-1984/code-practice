@@ -32,9 +32,8 @@ public interface CarService {
 	 *
 	 * @param cardo the cardo
 	 * @return the car DO
-	 * @throws ConstraintsViolationException the constraints violation exception
 	 */
-	public abstract CarDO create(CarDO cardo) throws ConstraintsViolationException;
+	public abstract CarDO create(CarDO cardo);
 	
 	/**
 	 * Delete.
